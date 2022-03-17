@@ -1,0 +1,38 @@
+#issue5:
+rm -rf /var/lib/private/connectivity-check
+grep -Ril "connectivity-check" /etc
+rm -rf /etc/update-motd.d/30-connectivity-check
+kill -9 pid
+
+#issue1:
+find / -name alertd					#tim kiem file lib alertd
+rm -rf /usr/bin/alertd
+grep -Ril "alertd" /root			#tim kiem file persistent cuar alertd
+cp /etc/skel/.bashrc /root/.bashrc	#thay the file persistent
+kill -9 pid
+
+#issue2:
+rm -rf /etc/cron.daily/access-up
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC20LoIrzuu9IvtbUeV7jW5J+ed76E2NSYgFhcpJdFiGq+sAv4ewLzF7DshiqH+G20rdLdCgBA3ohcXf8QKv8aosXVD2MLzJ0ad7BvL026M39RHjxT5Vis8Ch6zCGcL1QN/l4riYYtqAmWqxQHVE2HnUeR/Dd7qhyIK6L4PCxQo0q1qOJb+FY1E0/CJYpY90ceX2psXAdGO8FY329+nI1pizwt7OuLk0rBmR11MkcCTQjAUhs7OG+3Pwr9FYHpBS793kDPgDrgKQ9dYJ3q3szsRElbB7W9+Y6dQvpMyJSmYYc1IrP6Ew8L1VGKexQRL6j40F6yzK2PBUdsDYROryGieRbVAwnxlwARpVvwqMY1WJVm0vg6stHAXPQ/pKHjXAedHheNHVOfIqFgOY7NR1ybQSajTYlEg1aDCJki19LQ2RroShyWbxcHMS0p2LDYwzxu4E5139GDg6inSI2m5Io57Vd+3HDhvLhBahTkGzYmausQFHUkiGm87O5vYlAZlWIs= root@buildkitsandbox" > .ssh/authorized_keys
+
+#issue3:
+find / -user root -perm -4000 -print
+rm -rf /usr/sbin/ppppd
+
+#issue8:
+crontab -l
+rm -rf /var/spool/cron/crontabs
+
+#issue7:
+rm -rf /lib/python3/dist-packages/ssh_import_id_update
+rm -rf /etc/cron.daily/pyssh
+
+#issue6:	
+rm -rf /home/user/.backdoor
+cp .bashrc /home/user/.bashrc
+rm -rf /home/user/.sudo_as_admin_successful
+
+#issue4:
+cat /etc/passwd | grep -i "/bash"
+usermod -s /usr/sbin/nologin gnats
+usermod -g gnats gnats
