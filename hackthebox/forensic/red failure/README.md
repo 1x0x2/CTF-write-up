@@ -2,7 +2,7 @@
   + 4A7xH.ps1
   + 9tVI0
   + user32.dll
-- Using dnspy to reverse user32.dll and decrypt file 9tVI0 using Program.cs. base64 decode result to receive shellcode download.dat
+- Using dnspy to reverse user32.dll and decrypt file 9tVI0 using Decrypt.cs. base64 decode result to receive shellcode.dat
 - Using tool ShellcodeLoader.exe (https://github.com/sisoma2/ShellcodeLoader) to run shellcode:
-  + cmd: ShellcodeLoader.exe  -a 1000 download.dat
+  + cmd: ShellcodeLoader.exe  -a 1000 shellcode.dat
   + using procmon64.exe of sysinternal to monitor to receive flag.
