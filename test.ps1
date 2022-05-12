@@ -1,1 +1,1 @@
-echo "hellllllllllllllllllo"
+echo "test cloud"
